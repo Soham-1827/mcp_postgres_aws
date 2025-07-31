@@ -1,6 +1,6 @@
 # Can show RDS endpoint for output
 
-output "rds_endpoint" {
+output "rds_endpoint1" {
     description = "The endpoint of the RDS instance."
     value       = aws_db_instance.postgres.endpoint
 }

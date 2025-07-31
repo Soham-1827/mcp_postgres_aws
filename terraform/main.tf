@@ -71,11 +71,17 @@ resource "aws_security_group" "postgres" {
   })
 }
 
+resource "aws_db_subnet_group" "default" {
+  name       = "mcp-postgres-subnet-group"
+  subnet_ids = data.aws_subnets.default.ids
+  tags       = merge(local.common_tags, { Name = "MCP Postgres Subnet Group" })
+}
+
 resource "aws_db_instance" "postgres" {
     identifier     = "${var.environment}-mcp-postgres-${random_string.suffix.result}"
     engine         = "postgres"
-    engine_version = "17.4-R1"
-    instance_class = "var.db_instance_class"
+    engine_version = "17.4"
+    instance_class = var.db_instance_class
     allocated_storage = 20
     storage_type = "gp3"
     storage_encrypted = true
@@ -84,7 +90,7 @@ resource "aws_db_instance" "postgres" {
     password = var.db_password
     port = 5432
 
-    db_subnet_group_name = "default"
+    db_subnet_group_name = aws_db_subnet_group.default.name
     vpc_security_group_ids = [aws_security_group.postgres.id]
     publicly_accessible = var.publicly_accessible
 
@@ -102,16 +108,24 @@ resource "aws_db_instance" "postgres" {
   })
 }
 
-resource "aws_secretsmanager_secret_version" "db_credentials" {
-    secret_id = aws_secretsmanager_secret.db_credentials.id
+resource "aws_secretsmanager_secret" "db_credentials" {
+  name        = "${var.environment}-mcp-postgres-db-credentials-${random_string.suffix.result}"
+  description = "Credentials for MCP PostgreSQL RDS instance"
+  tags        = merge(local.common_tags, {
+    Name = "${var.environment}-mcp-postgres-db-credentials"
+  })
+}
 
-    secret_string = jsonencode({
-        host = aws_db_instance.postgres.address
-        port = aws_db_instance.postgres.port
-        username = aws_db_instance.postgres.username
-        password = var.db_password
-        dbname = aws_db_instance.postgres.db_name
-    })
+resource "aws_secretsmanager_secret_version" "db_credentials" {
+  secret_id     = aws_secretsmanager_secret.db_credentials.id
+
+  secret_string = jsonencode({
+    host     = aws_db_instance.postgres.address
+    port     = aws_db_instance.postgres.port
+    username = aws_db_instance.postgres.username
+    password = var.db_password
+    dbname   = aws_db_instance.postgres.db_name
+  })
 }
 
 output "rds_endpoint" {
