@@ -19,6 +19,9 @@ env/
 *.egg-info/
 .vscode/
 .idea/
+.env
+*.env
+.env.*
 
 # OS
 .DS_Store
