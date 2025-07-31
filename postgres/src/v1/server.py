@@ -5,7 +5,7 @@ import os
 from typing import Annotated, Any, Dict, List
 import logging
 
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 from pydantic import Field
 
 # We'll import from our mlservice module
