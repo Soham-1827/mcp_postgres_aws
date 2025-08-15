@@ -27,7 +27,11 @@ bash
 ```
 git clone https://github.com/Soham-1827/mcp_postgres_aws.git
 cd mcp_postgres_aws
+```
+
 2. Set up Python and dependencies
+bash
+```
 Create a virtual environment (recommended):
 
 
@@ -37,7 +41,11 @@ Install the required Python packages:
 
 
 pip install -r requirements.txt
+```
+
 3. Add your environment variables
+bash
+```
 Inside postgres/src/, create a file called .env:
 
 
@@ -49,15 +57,21 @@ SECRET_ID=your-secret-id
 DEBUG=true
 These settings tell the server how to connect to your database.
 Never commit .env to GitHub!
+```
 
 4. Set up the database
+bash
+```
 From the postgres/src/ folder, run:
 
 
 python init_db.py
 This will read the provided scripts/init_database.sql and create all tables and test data for you.
+```
 
 5. Run the MCP Server
+bash
+```
 To start the HTTP server (good for API access/testing):
 
 
