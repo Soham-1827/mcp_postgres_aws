@@ -23,7 +23,8 @@ This project is a complete starter kit for running a **Model Context Protocol (M
 ### 1. **Clone the repository**
 
 Start by copying the project to your computer:
-
+bash
+```
 git clone https://github.com/Soham-1827/mcp_postgres_aws.git
 cd mcp_postgres_aws
 2. Set up Python and dependencies
@@ -68,6 +69,7 @@ To run in STDIO mode (for tools like Claude Desktop):
 
 
 python run_stdio.py
+```
 🧩 Features
 Easy AI Integration: Serve data and schemas to LLMs, AI agents, or custom dashboards.
 
