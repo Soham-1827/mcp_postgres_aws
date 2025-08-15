@@ -23,29 +23,23 @@ This project is a complete starter kit for running a **Model Context Protocol (M
 ### 1. **Clone the repository**
 
 Start by copying the project to your computer:
-```bash
+
 git clone https://github.com/Soham-1827/mcp_postgres_aws.git
 cd mcp_postgres_aws
 2. Set up Python and dependencies
 Create a virtual environment (recommended):
 
-bash
-Copy
-Edit
+
 python -m venv venv
 source venv/bin/activate       # On Windows: venv\Scripts\activate
 Install the required Python packages:
 
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 3. Add your environment variables
 Inside postgres/src/, create a file called .env:
 
-ini
-Copy
-Edit
+
 DB_HOST=your-db-endpoint
 DB_USER=postgres
 DB_PASS=your-password
@@ -58,26 +52,21 @@ Never commit .env to GitHub!
 4. Set up the database
 From the postgres/src/ folder, run:
 
-bash
-Copy
-Edit
+
 python init_db.py
 This will read the provided scripts/init_database.sql and create all tables and test data for you.
 
 5. Run the MCP Server
 To start the HTTP server (good for API access/testing):
 
-bash
-Copy
-Edit
+
+
 python main.py
 The server will be available at http://localhost:8000.
 
 To run in STDIO mode (for tools like Claude Desktop):
 
-bash
-Copy
-Edit
+
 python run_stdio.py
 🧩 Features
 Easy AI Integration: Serve data and schemas to LLMs, AI agents, or custom dashboards.
@@ -87,9 +76,6 @@ Custom Tools: Out-of-the-box endpoints for getting table data, schemas, and runn
 Cloud Ready: Use the terraform/ folder to spin up all resources on AWS in a few commands.
 
 📚 Project Structure
-graphql
-Copy
-Edit
 .
 ├── terraform/              # Terraform scripts for AWS/cloud setup
 ├── postgres/
