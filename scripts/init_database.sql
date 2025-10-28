@@ -1,6 +1,6 @@
 -- Create sample e-commerce database schema
 
--- Users table
+
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(100) UNIQUE NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 COMMENT ON TABLE users IS 'Store user account information';
 COMMENT ON COLUMN users.email IS 'User email address for login';
 
--- Products table
+
 CREATE TABLE IF NOT EXISTS products (
     product_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS products (
 COMMENT ON TABLE products IS 'Product catalog with pricing and inventory';
 COMMENT ON COLUMN products.price IS 'Product price in USD';
 
--- Orders table
+
 CREATE TABLE IF NOT EXISTS orders (
     order_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id),
