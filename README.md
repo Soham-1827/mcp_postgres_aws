@@ -92,6 +92,7 @@ Custom Tools: Out-of-the-box endpoints for getting table data, schemas, and runn
 Cloud Ready: Use the terraform/ folder to spin up all resources on AWS in a few commands.
 
 📚 Project Structure
+```
 .
 ├── terraform/              # Terraform scripts for AWS/cloud setup
 ├── postgres/
@@ -105,7 +106,8 @@ Cloud Ready: Use the terraform/ folder to spin up all resources on AWS in a few 
 ├── scripts/
 │   └── init_database.sql   # SQL schema/data for e-commerce demo
 ├── .gitignore
-├── README.md
+└── README.md
+```
 💬 Need help?
 Open an issue on the GitHub repo if you get stuck or have questions!
 
