@@ -11,6 +11,7 @@
 This project is a complete starter kit for running a **Model Context Protocol (MCP) server** with a PostgreSQL database backend. It’s designed for building and testing AI-powered research agents, tools, and workflows that need a flexible SQL backend. You also get a sample e-commerce schema with test data, and everything can be deployed to the cloud using Terraform.
 
 ## 🌟 What is this project?
+- Future work on JSONB files and super large json files
 
 - **MCP Server:** Lets you connect your AI tools (like Claude Desktop) or custom workflows to a PostgreSQL database, through a robust, API-driven server.
 - **Sample Database:** Includes ready-to-use tables (users, products, orders) for quick experimentation.
